@@ -12,7 +12,6 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserDaoImpl implements UserDao {
 
    @Autowired
@@ -25,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 
    @Override
    @SuppressWarnings("unchecked")
-   public List<User> listUsers() {
+   public List<User> makeListUsers() {
       TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }

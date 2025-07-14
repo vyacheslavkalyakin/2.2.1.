@@ -10,28 +10,28 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-   private  final UserDao userDao;
+    private final UserDao userDao;
 
-   public UserServiceImpl(UserDao userDao) {
-      this.userDao = userDao;
-   }
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
-   @Transactional
-   @Override
-   public void addUser(User user) {
-      userDao.addUser(user);
-   }
+    @Transactional
+    @Override
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
 
-   @Transactional(readOnly = true)
-   @Override
-   public List<User> listUsers() {
-      return userDao.listUsers();
-   }
+    @Transactional(readOnly = true)
+    @Override
+    public List<User> listUsers() {
+        return userDao.makeListUsers();
+    }
 
-   @Transactional
-   @Override
-   public List<User> findUserBySeriesByModel(String model, int series) {
-      return userDao.findUserBySeriesByModel(model, series);
-   }
+    @Transactional
+    @Override
+    public List<User> findUserBySeriesByModel(String model, int series) {
+        return userDao.findUserBySeriesByModel(model, series);
+    }
 }
 
